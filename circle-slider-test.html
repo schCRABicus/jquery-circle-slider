@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CircleSlider plugin test page</title>
+
+    <script type="text/javascript" src="js/dependencies/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/circle-slider.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/circle-slider.css" />
+</head>
+<body>
+    <div>
+        <span>This is circle slider : </span>
+    </div>
+    <br />
+    <div>
+        <span>Left shift to test offset....   </span>
+        <div id="circle-slider-1" style="display: inline-block"></div>
+        <span>Range 0-20....   </span>
+        <div id="circle-slider-3" style="display: inline-block"></div>
+    </div>
+    <br />
+    <div>
+        <span>Range from 1.5 to 5.5 with step = 0.05 ....   </span>
+        <div id="circle-slider-4" style="display: inline-block"></div>
+    </div>
+    <div>
+        <button id="circle-slider-1-get-value">Get value</button>
+        <span id="circle-slider-1-value"></span>
+    </div>
+    <div>
+        <input type="text" id="circle-slider-1-new-value" />
+        <button id="circle-slider-1-set-value">Set value</button>
+    </div>
+    <br />
+    <div style="height:1000px;">
+        <span>Another very high div</span>
+    </div>
+    <div>
+        <div id="circle-slider-2" style="display: inline-block"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#circle-slider-1").circleSlider({
+                start : function(){
+
+                },
+                stop : function(){
+
+                },
+                slide : function( deg ){
+
+                },
+                format : "range",
+                min : 1,
+                max : 21,
+                value : 5,
+                step : 2
+            });
+
+            $("#circle-slider-1-get-value").click(function(){
+                $("#circle-slider-1-value").html($("#circle-slider-1").circleSlider("value"));
+            });
+            $("#circle-slider-1-set-value").click(function(){
+                $("#circle-slider-1").circleSlider("value" , $("#circle-slider-1-new-value").val());
+            });
+
+            $("#circle-slider-2").circleSlider();
+
+            $("#circle-slider-3").circleSlider({
+                format : "range",
+                min : 0,
+                max : 20,
+                step : 4
+            });
+
+            $("#circle-slider-4").circleSlider({
+                format : "range",
+                min : 1.5,
+                max : 5.5,
+                step : 0.05
+            });
+        });
+    </script>
+</body>
+</html>
