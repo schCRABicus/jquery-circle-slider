@@ -18,6 +18,7 @@
     <file path="/app.js" changelist="1feb0392-36f1-443d-9264-225b711b4bfe" time="1367903393072" ignored="false" />
     <file path="/circle-slider.js" changelist="1feb0392-36f1-443d-9264-225b711b4bfe" time="1367821378022" ignored="false" />
     <file path="/circle-slider.css" changelist="1feb0392-36f1-443d-9264-225b711b4bfe" time="1367821527056" ignored="false" />
+    <file path="/config.ru" changelist="1feb0392-36f1-443d-9264-225b711b4bfe" time="1367905723167" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,10 +115,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025167786">
+            <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.ru" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.ru">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="10" selection-start="256" selection-end="256" vertical-scroll-proportion="0.33972126">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile.lock" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile.lock">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,6 +189,7 @@
         <option value="$PROJECT_DIR$/demo/js/app.js" />
         <option value="$PROJECT_DIR$/src/minified/circle-slider-1.0.0.min.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/config.ru" />
       </list>
     </option>
   </component>
@@ -320,11 +349,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/demo/css" />
       <recent name="$PROJECT_DIR$/demo/js" />
       <recent name="$PROJECT_DIR$/demo/css/js" />
       <recent name="$PROJECT_DIR$/demo/css/img" />
-      <recent name="$PROJECT_DIR$/css/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -533,11 +562,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/css/images/ui-bg_dots-small_20_0972a5_2x2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/css/images/ui-bg_highlight-soft_80_eeeeee_1x100.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -622,7 +646,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025167786">
+        <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ru">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="10" selection-start="256" selection-end="256" vertical-scroll-proportion="0.33972126">
           <folding />
         </state>
       </provider>
