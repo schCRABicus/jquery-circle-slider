@@ -105,10 +105,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="circle-slider-1.0.0.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="circle-slider-1.0.0.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/circle-slider-1.0.0.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1026" column="11" selection-start="32874" selection-end="32874" vertical-scroll-proportion="0.12521441">
+            <state line="1026" column="11" selection-start="32874" selection-end="32874" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025167786">
               <folding />
             </state>
           </provider>
@@ -151,6 +160,7 @@
         <option value="$PROJECT_DIR$/demo/index.html" />
         <option value="$PROJECT_DIR$/demo/js/app.js" />
         <option value="$PROJECT_DIR$/src/minified/circle-slider-1.0.0.min.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -549,7 +559,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/js/javascript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.4703833" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.4703833">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/css/codemirror.css">
@@ -601,16 +613,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/circle-slider-1.0.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="1026" column="11" selection-start="32874" selection-end="32874" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/circle-slider-1.0.0.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1026" column="11" selection-start="32874" selection-end="32874" vertical-scroll-proportion="0.12521441">
+        <state line="1" column="7" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025167786">
           <folding />
         </state>
       </provider>
