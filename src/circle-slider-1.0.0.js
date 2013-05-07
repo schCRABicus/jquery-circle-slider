@@ -29,11 +29,35 @@
             if ( el ){
                 if ( args.length ){
                     /* ... setter ... */
-                    el.setValue( args[0] );
+                    el.setValue( Number( args[0] ) );
                 } else {
                     /* ... getter ... */
                     return el.getValue();
                 }
+            }
+        },
+
+        destroy : function(){
+            var el = CircleSlider.get_instance( this);
+
+            if ( el ){
+                el.destroy();
+            }
+        },
+
+        disable : function(){
+            var el = CircleSlider.get_instance( this);
+
+            if ( el ){
+                el.disable();
+            }
+        },
+
+        enable : function(){
+            var el = CircleSlider.get_instance( this);
+
+            if ( el ){
+                el.enable();
             }
         },
 
@@ -262,6 +286,13 @@
         this.value_to_degrees_transformer = this.integerFromValueTransformer;
 
         /**
+         * Indicates whether the plugin is enabled at the moment;
+         *
+         * @type {boolean}
+         */
+        this.enabled = true;
+
+        /**
          * Triggers the specified event;
          *
          * @public
@@ -350,6 +381,7 @@
         this.view.value_prefix_element.html( this.options.prefix );
         this.view.value_suffix_element.html( this.options.suffix );
 
+        this.adjustOptions();
         /* value check */
         {
             this.calculateAccuracy();
@@ -391,6 +423,26 @@
         this.bindNativeCallbacks();
         this.bindCustomCallbacks();
         this.bindHandlers();
+    };
+
+    /**
+     * Adjusts current options;
+     * Since the minimum value, maximum value and step value are taken into account only for 'range'
+     * format, we have to set the default options for format, not equal to 'range';
+     *
+     * @public
+     * @method adjustOptions
+     */
+    CircleSlider.prototype.adjustOptions = function(){
+        this.options.min = Number(this.options.min);
+        this.options.max = Number(this.options.max);
+        this.options.step = Number(this.options.step);
+
+        if ( this.options.format != "range" ){
+            this.options.min = CircleSlider.default_options.min;
+            this.options.max = CircleSlider.default_options.max;
+            this.options.step = CircleSlider.default_options.step;
+        }
     };
 
     /**
@@ -486,7 +538,6 @@
      * @return {Number} Rounded to the nearest value in the range value;
      */
     CircleSlider.prototype.rangeToValueTransformer = function( v ){
-
         return Math.round(
             ( this.options.min +
                 this.options.step *
@@ -545,6 +596,7 @@
 
         this.view.control_element.on( 'mousedown', function( e ){
             e.preventDefault();
+            if ( !self.enabled ) return;
 
             self.recalculatePositions();
             self.trigger_event( "start" );
@@ -693,6 +745,44 @@
     };
 
     /**
+     * Removes the slider functionality completely. This will return the element back to its pre-init state.
+     *
+     * @public
+     * @method destroy
+     */
+    CircleSlider.prototype.destroy = function(){
+        var o = this.options,
+            id = o ? o.id : null,
+            p = o ? o.element : null;
+
+        if( id ) delete CircleSlider.cached_instances[ id ];
+        if( p ) p.empty();
+
+    };
+
+    /**
+     * Disables the slider.
+     *
+     * @public
+     * @method disable
+     */
+    CircleSlider.prototype.disable = function(){
+        this.enabled = false;
+        this.view.control_element.addClass( "state-disabled" );
+    };
+
+    /**
+     * Enables the slider.
+     *
+     * @public
+     * @method disable
+     */
+    CircleSlider.prototype.enable = function(){
+        this.enabled = true;
+        this.view.control_element.removeClass( "state-disabled" );
+    };
+
+    /**
      * A set of default options;
      *
      * @static
@@ -702,7 +792,7 @@
     CircleSlider.default_options = {
         min : 0,
         max : 359,
-        step : 1,
+        step : 0.01,
         value : 0,
         prefix : "",
         suffix : "",
@@ -866,7 +956,7 @@
                         accuracy = data ? data.accuracy : null;
 
                     this.instructions = "Range [ " + min + " ; " + max + " ] can't be covered with the integer number of the specified steps : " + step + ".";
-                    return min != null && max != null && step != null && ( ( Math.round( ( max - min ) / step * Math.pow( 10 , accuracy ) ) /  Math.pow( 10 , accuracy ) % 1 ) == 0 );
+                    return min != null && max != null && step != null && ( ( Math.round( ( max - min ) / step * Math.pow( 10 , accuracy + 1 ) ) /  Math.pow( 10 , accuracy + 1 ) % 1 ) == 0 );
 
                 },
 
@@ -893,7 +983,7 @@
                         accuracy = data ? data.accuracy : null;
 
                     this.instructions = "Value " + value + " doesn't lie in range [ " + min + " ; " + max + " ] , covered by step = " + step + ".";
-                    return min != null && max != null && step != null && ( value >= min ) && ( value <= max ) && ( ( Math.round( ( ( value - min ) / step ) * Math.pow( 10 , accuracy ) ) / Math.pow( 10 , accuracy ) % 1 ) == 0 );
+                    return min != null && max != null && step != null && ( value >= min ) && ( value <= max ) && ( ( Math.round( ( ( value - min ) / step ) * Math.pow( 10 , accuracy + 1 ) ) / Math.pow( 10 , accuracy + 1 ) % 1 ) == 0 );
                 },
 
                 instructions : "The specified value doesn't lie in the initial range."

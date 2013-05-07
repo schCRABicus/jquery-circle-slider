@@ -48,6 +48,13 @@
     box-shadow: 0 0 9px 0 #f6931f, inset 0 0 9px 0 rgba( 255 , 255, 255, 0.2);
     -moz-box-shadow: 0 0 9px 0 #f6931f, inset 0 0 9px 0 rgba( 255 , 255, 255, 0.2);
 }
+.ui-circle-slider.control-element.state-disabled{
+    opacity: .5;
+}
+.ui-circle-slider.control-element.state-disabled:hover{
+    box-shadow: none;
+    -moz-box-shadow: none;
+}
 
 .ui-circle-slider.slider-value,
 .ui-circle-slider.slider-value-prefix,

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle slider demo page</title>
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="../src/circle-slider-1.0.0.js"></script>
+    <script type="text/javascript" src="js/codemirror.js"></script>
+    <script type="text/javascript" src="js/javascript.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../src/circle-slider.css" />
+    <link rel="stylesheet" type="text/css" href="css/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="css/eclipse.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+<div class="background">
+    <div id="app-tabs" class="settings-panel panel">
+        <ul >
+            <li class="left-tab-menu-item tab-menu-item">
+                <a href="#options-tab">Options</a>
+            </li>
+            <li class="center-tab-menu-item tab-menu-item">
+                <a href="#api-tab">Api</a>
+            </li>
+            <li class="right-tab-menu-item tab-menu-item">
+                <a href="#source-tab">Source</a>
+            </li>
+        </ul>
+        <section id="options-tab">
+            <div class="content-heading">
+                <div class="line-separator"></div>
+                Options
+                <div class="line-separator"></div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Format
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <div id="format-radio">
+                            <input type="radio" id="integer" name="format" value="integer" /><label for="integer">Integer</label>
+                            <input type="radio" id="decimal" name="format" value="decimal" checked="checked" /><label for="decimal">Decimal</label>
+                            <input type="radio" id="range" value="range" name="format" /><label for="range">Range</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="min-value" >
+                            Minimum
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="min-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="max-value" >
+                            Maximum
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="max-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="step-value" >
+                            Step value
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="step-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="current-value" >
+                            Current value
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="current-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="prefix-value" >
+                            Prefix
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="prefix-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        <label for="suffix-value" >
+                            Suffix
+                        </label>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <input id="suffix-value" class="input-text" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Enable\disable plugin :
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="side-content">
+                        <div id="state-radio">
+                            <input type="radio" id="disable" name="state" value="disable" /><label for="disable">Disable</label>
+                            <input type="radio" id="enable" name="state" value="enable" checked="checked" /><label for="enable">Enable</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="api-tab">
+
+            <div class="three-column-section">
+                <div class="left-column column">
+                    <div class="column-header">
+                        Options
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#format-ref">Format</a>
+                            </li>
+                            <li>
+                                <a href="#minimum-ref">Minimum</a>
+                            </li>
+                            <li>
+                                <a href="#maximum-ref">Maximum</a>
+                            </li>
+                            <li>
+                                <a href="#step-ref">Step</a>
+                            </li>
+                            <li>
+                                <a href="#prefix-ref">Prefix</a>
+                            </li>
+                            <li>
+                                <a href="#suffix-ref">Suffix</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="middle-column column">
+                    <div class="column-header">
+                        Methods
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#mvalue-ref">Value</a>
+                            </li>
+                            <li>
+                                <a href="#destroy-ref">Destroy</a>
+                            </li>
+                            <li>
+                                <a href="#disable-ref">Disable</a>
+                            </li>
+                            <li>
+                                <a href="#enable-ref">Enable</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right-column column">
+                    <div class="column-header">
+                        Events
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#start-ref">Start</a>
+                            </li>
+                            <li>
+                                <a href="#stop-ref">Stop</a>
+                            </li>
+                            <li>
+                                <a href="#slide-ref">Slide</a>
+                            </li>
+                            <li>
+                                <a href="#change-ref">Change</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-heading">
+                <div class="line-separator"></div>
+                    Options
+                <div class="line-separator"></div>
+            </div>
+            <div id="format-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Format
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        There are 3 already supported formats :
+                        <dl>
+                            <dt>
+                                Integer
+                            </dt>
+                            <dd>
+                                This format defines a pre specified range from 0 to 359 with the step, equal to 1. <br />
+                                Options 'min', 'max' and 'step' are not taken into account;
+                            </dd>
+                            <dt>
+                                Decimal
+                            </dt>
+                            <dd>
+                                This format defines a pre specified range from 0 to 359 with the step, equal to 0.01. <br />
+                                Options 'min', 'max' and 'step' are not taken into account;
+                                Differs from 'integer' format only with the 'step' value;
+                            </dd>
+                            <dt>
+                                Range
+                            </dt>
+                            <dd>
+                                This format allows to specify any range with any step with the help of 'min', 'max' and 'step' options; <br />
+                                On plugin initialization, all the options are validated :
+                                <ul>
+                                    <li>
+                                        'Min' and 'max' options validity is checked;
+                                    </li>
+                                    <li>
+                                        It's checked whether the range can be covered with the integer number of steps;
+                                    </li>
+                                </ul>
+                                If there are any errors, then the invalid value is set to default.
+                            </dd>
+                        </dl>
+                        Default value is 'integer';
+                    </details>
+                </div>
+            </div>
+            <div id="minimum-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Minimum
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Minimum
+                            </dt>
+                            <dd>
+                                Specifies the minimum value of the slider; <br />
+                                This options is taken into account only for 'range' format; <br />
+                                Default value is '0';
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="maximum-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Maximum
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Maximum
+                            </dt>
+                            <dd>
+                                Specifies the maximum value of the slider; <br />
+                                This options is taken into account only for 'range' format; <br />
+                                Default value is '359';
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="step-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Step
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Step
+                            </dt>
+                            <dd>
+                                Determines the size or amount of each interval or step the slider takes between the min and max. The full specified value range of the slider (max - min) should be evenly divisible by the step. <br />
+                                This options is taken into account only for 'range' format; <br />
+                                Default value is '1' for 'integer' format and '0.01' for decimal;
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="value-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Value
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Value
+                            </dt>
+                            <dd>
+                                Specifies the initial value; <br />
+                                On plugin initialization, it's checked whether the value in in the range and can be targeted with the integer number of steps; If validation fail, it's reset to default. <br />
+                                This options is taken into account only for 'range' format; <br />
+                                Default value is '0';
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="prefix-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Prefix
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open>
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Prefix
+                            </dt>
+                            <dd>
+                                Specifies the prefix which will be shown in plugin before the current value;<br />
+                                Default value is '';
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="suffix-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Suffix
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+                        <dl>
+                            <dt>
+                                Suffix
+                            </dt>
+                            <dd>
+                                Specifies the suffix which will be shown in plugin after the current value;<br />
+                                Default value is '';
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+
+            <div class="content-heading">
+                <div class="line-separator"></div>
+                    Methods
+                <div class="line-separator"></div>
+            </div>
+            <div id="mvalue-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Value
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        <dl>
+                            <dt>
+                                Value()
+                            </dt>
+                            <dd>
+                                Gets the current value as a number.;
+                            </dd>
+                            <dt>
+                                Value( value )
+                            </dt>
+                            <dd>
+                                The value to set.;
+                            </dd>
+                        </dl>
+                    </details>
+                </div>
+            </div>
+            <div id="destroy-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Destroy
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Removes the slider functionality completely. This will return the element back to its pre-init state.
+                    </details>
+                </div>
+            </div>
+            <div id="disable-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Disable
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Disables the slider.
+                    </details>
+                </div>
+            </div>
+            <div id="enable-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Enable
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Enables the slider.
+                    </details>
+                </div>
+            </div>
+
+            <div class="content-heading">
+                <div class="line-separator"></div>
+                    Events
+                <div class="line-separator"></div>
+            </div>
+            <div id="start-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Start
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Triggered when the user starts sliding.
+                    </details>
+                </div>
+            </div>
+
+            <div id="stop-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Stop
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Triggered when the user stops sliding.
+                    </details>
+                </div>
+            </div>
+
+            <div id="slide-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Slide( value )
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Triggered on every mouse move during slide. The value provided in the event as value represents the value that the handle will have as a result of the current movement.
+                    </details>
+                </div>
+            </div>
+
+            <div id="change-ref" class="panel-row">
+                <div class="left-side">
+                    <div class="side-content">
+                        Change( value )
+                    </div>
+                </div>
+                <div class="right-side">
+
+                </div>
+                <div class="details-row">
+                    <details title="details" open >
+                        <summary>Description</summary>
+
+                        Triggered if the value has changed or if the value is changed programmatically via the value method.
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="source-tab">
+
+            <div id="code-container">
+
+            </div>
+
+        </section>
+    </div>
+
+    <div class="plugin-panel panel">
+        <div id="circle-slider-instance" class="circle-slider-holder">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
